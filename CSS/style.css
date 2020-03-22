@@ -1,14 +1,20 @@
-.timer {
+#timer {
     text-align: right;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 20px;
+    font-size: larger;
 }
 
 .card {
     max-width: 960px;
     margin: auto;
+    margin-top: 50px;
 }
 
-.btn {
-    font: #ffffff;
+.questionBtn {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#quizCard {
+    visibility: hidden;
 }
