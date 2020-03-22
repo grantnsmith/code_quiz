@@ -1,0 +1,14 @@
+.timer {
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+.card {
+    max-width: 960px;
+    margin: auto;
+}
+
+.btn {
+    font: #ffffff;
+}
