@@ -18,3 +18,19 @@
 #quizCard {
     visibility: hidden;
 }
+
+#nextQuestionBtn {
+    margin: auto;
+    margin-bottom: 20px;
+   visibility: hidden;
+}
+
+#correctAnswer {
+    margin: auto;
+    visibility: hidden;
+}
+
+#wrongAnswer {
+    margin: auto;
+    visibility: hidden;
+}

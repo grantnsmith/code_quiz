@@ -37,13 +37,12 @@ var answer2 = document.querySelector("#answer2");
 var answer3 = document.querySelector("#answer3");
 var answer4 = document.querySelector("#answer4");
 var questionBtn = document.querySelector(".questionBtn");
+var currentQuestion = 0;
 
 // Quiz card function
 
 function quizQuestionFunct() {
     quizCard.style.visibility = "visible";
-    // for (i = 0; i < qAndAArr.length; i++) {
-    
     questionNumber.textContent = qAndAArr[0].questionNumber;
     quizQuestion.textContent = qAndAArr[0].question;
     answer1.textContent = qAndAArr[0].answer1;
@@ -51,13 +50,16 @@ function quizQuestionFunct() {
     answer3.textContent = qAndAArr[0].answer3;
     answer4.textContent = qAndAArr[0].answer4;
     
-    }
-    // Still testing correct answer mechanism
-    // if (qAndAArr[0].answer === answer2) {
-        
-    // }
-
+      // checkAnsw(); 
+ 
 } 
+
+// function checkAnsw() {
+    
+// }
+  
+
+
 // Quiz array of questions and answers
 
 var qAndAArr = [
@@ -68,7 +70,7 @@ var qAndAArr = [
         answer2: "This is answer 2",
         answer3: "This is answer 3",
         answer4: "This is answer 4",
-        answer: answer2,
+        correct: "1"
     },
     {
         questionNumber: "Question 2",
@@ -77,9 +79,9 @@ var qAndAArr = [
         answer2: "This is answer 2",
         answer3: "This is answer 3",
         answer4: "This is answer 4",
+        correct: "3"
     }
 ]
-
 
 //   End of Game function
 
@@ -88,8 +90,6 @@ var qAndAArr = [
   }
 
 startBtnEl.addEventListener("click", startQuiz);
+questionBtn.addEventListener("click", testFunction);
 
-
-// Unsure on where to put this event listener
-// questionBtn.addEventListener("click", quizQuestionFunct);
 
