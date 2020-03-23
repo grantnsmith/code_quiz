@@ -15,6 +15,29 @@ function setTime() {
     }, 1000);
   }
 
+  // Quiz array of questions and answers
+
+var qAndAArr = [
+  {
+      questionNumber: "Question 1",
+      question: "Quiz Question Number 1?",
+      answer1: "This is answer 1",
+      answer2: "This is answer 2",
+      answer3: "This is answer 3",
+      answer4: "This is answer 4",
+      correct: "1"
+  },
+  {
+      questionNumber: "Question 2",
+      question: "Quiz Question Number 2?",
+      answer1: "This is answer 1",
+      answer2: "This is answer 2",
+      answer3: "This is answer 3",
+      answer4: "This is answer 4",
+      correct: "3"
+  }
+]
+
 //   Start Quiz
 var startBtnEl = document.querySelector("#startBtn");
 var welcMessageEl = document.querySelector("#welcomeMessage");
@@ -37,6 +60,7 @@ var answer2 = document.querySelector("#answer2");
 var answer3 = document.querySelector("#answer3");
 var answer4 = document.querySelector("#answer4");
 var questionBtn = document.querySelector(".questionBtn");
+var nextQuestionBtnEl = docuemnt.querySelector("#nextQuestionBtn")
 var currentQuestion = 0;
 
 // Quiz card function
@@ -49,39 +73,22 @@ function quizQuestionFunct() {
     answer2.textContent = qAndAArr[0].answer2;
     answer3.textContent = qAndAArr[0].answer3;
     answer4.textContent = qAndAArr[0].answer4;
+    currentQuestion++;
     
-      // checkAnsw(); 
+      // checkAnswer(); 
  
 } 
 
-// function checkAnsw() {
+function checkAnswer() {
+  // if statement checking answer
+  // correct/wrong statemtn
+  // remove time from clock if 
     
-// }
-  
+}
 
 
-// Quiz array of questions and answers
 
-var qAndAArr = [
-    {
-        questionNumber: "Question 1",
-        question: "Quiz Question Number 1?",
-        answer1: "This is answer 1",
-        answer2: "This is answer 2",
-        answer3: "This is answer 3",
-        answer4: "This is answer 4",
-        correct: "1"
-    },
-    {
-        questionNumber: "Question 2",
-        question: "Quiz Question Number 2?",
-        answer1: "This is answer 1",
-        answer2: "This is answer 2",
-        answer3: "This is answer 3",
-        answer4: "This is answer 4",
-        correct: "3"
-    }
-]
+
 
 //   End of Game function
 
@@ -90,6 +97,6 @@ var qAndAArr = [
   }
 
 startBtnEl.addEventListener("click", startQuiz);
-questionBtn.addEventListener("click", testFunction);
+questionBtn.addEventListener("click", checkAnswer);
 
 
