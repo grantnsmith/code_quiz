@@ -2,29 +2,29 @@
 
 var qAndAArr = [
   {
-      questionNumber: "Question 1",
-      question: "Quiz Question Number 1?",
+      questionNumber: "Question Number 1",
+      question: "What do [] denote in Javascript?",
       answers: {
-        a: "This is answer 1",
-        b: "This is answer 2",
-        c: "This is answer 3",
-        d: "This is answer 4",
+        a: "An Array",
+        b: "An Object",
+        c: "A variable",
+        d: "A function",
       },
       correctAnswer: "answer1",
   },
   {
-    questionNumber: "Question 2",
-    question: "Quiz Question Number 2?",
+    questionNumber: "Question Number 2",
+    question: "What does DOM stand for?",
     answers: {
-      a: "This is answer 1",
-      b: "This is answer 2",
-      c: "This is answer 3",
-      d: "This is answer 4",
+      a: "Database Oriented Manager",
+      b: "Document Object Model",
+      c: "Data Objective Model",
+      d: "Debugging Oriented Mode",
     },
     correctAnswer: "answer2",
   },
   {
-    questionNumber: "Question 3",
+    questionNumber: "Question Number 3",
     question: "Quiz Question Number 3?",
     answers: {
       a: "This is answer 1",
@@ -123,10 +123,8 @@ function checkAnswer() {
 function nextQuestionFunc() {
   currentQuestion++;
     quizQuestionFunct();
-  // Run the next round of quizQuestionFunct
+
 }
-
-
 
 //   End of Game function
 
@@ -137,13 +135,6 @@ function nextQuestionFunc() {
 // Event listeners
 
 startBtnEl.addEventListener("click", startQuiz);
-
-
-// questionBtn.addEventListener("click", function(event){
-//   event.preventDefault();
-//   checkAnswer();
-//   }
-// );
 
 quizCard.addEventListener("click", function(event){
   if (event.target.id === "answer1" ||
