@@ -25,12 +25,8 @@
    visibility: hidden;
 }
 
-#correctAnswer {
+#answerMessage {
+    padding: 10px;
+    font-size: larger;
     margin: auto;
-    visibility: hidden;
-}
-
-#wrongAnswer {
-    margin: auto;
-    visibility: hidden;
 }

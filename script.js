@@ -10,7 +10,7 @@ var qAndAArr = [
         c: "This is answer 3",
         d: "This is answer 4",
       },
-      correctAnswer: "a",
+      correctAnswer: "answer1",
   },
   {
     questionNumber: "Question 2",
@@ -21,7 +21,7 @@ var qAndAArr = [
       c: "This is answer 3",
       d: "This is answer 4",
     },
-    correctAnswer: "b",
+    correctAnswer: "answer2",
   },
   {
     questionNumber: "Question 3",
@@ -32,7 +32,7 @@ var qAndAArr = [
       c: "This is answer 3",
       d: "This is answer 4",
     },
-    correctAnswer: "c",
+    correctAnswer: "answer3",
   },
   {
     questionNumber: "Question 4",
@@ -43,7 +43,7 @@ var qAndAArr = [
       c: "This is answer 3",
       d: "This is answer 4",
     },
-    correctAnswer: "d",
+    correctAnswer: "answer4",
   }
 ]
 
@@ -91,36 +91,38 @@ var answer1Btn = document.querySelector("answer1");
 var answer2Btn = document.querySelector("answer2");
 var answer3Btn = document.querySelector("answer3");
 var answer4Btn = document.querySelector("answer4");
-var nextQuestionBtnEl = document.querySelector("#nextQuestionBtn")
+var answerMessage = document.querySelector("#answerMessage");
+var nextQuestionBtnEl = document.querySelector("#nextQuestionBtn");
 var currentQuestion = 0;
 
 // Quiz card function
 
 function quizQuestionFunct() {
     quizCard.style.visibility = "visible";
+    answerMessage.textContent = "";
     questionNumber.textContent = qAndAArr[currentQuestion].questionNumber;
     quizQuestion.textContent = qAndAArr[currentQuestion].question;
-    answer1.textContent = qAndAArr[currentQuestion].answer1;
-    answer2.textContent = qAndAArr[currentQuestion].answer2;
-    answer3.textContent = qAndAArr[currentQuestion].answer3;
-    answer4.textContent = qAndAArr[currentQuestion].answer4;
-    
-      // checkAnswer(); 
+    answer1.textContent = qAndAArr[currentQuestion].answers.a;
+    answer2.textContent = qAndAArr[currentQuestion].answers.b;
+    answer3.textContent = qAndAArr[currentQuestion].answers.c;
+    answer4.textContent = qAndAArr[currentQuestion].answers.d;
  
 } 
 
 function checkAnswer() {
-  console.log("Check answer is working");
-  // if statement checking answer
-  // correct/wrong statemtn
-  // remove time from clock if 
-  nextQuestionBtnEl.style.visibility = "visible"
+  if (event.target.id === qAndAArr[currentQuestion].correctAnswer) {
+    answerMessage.textContent = "Correct Answer!"
+  } else {
+    answerMessage.textContent = "Wrong Answer!"
+  }
+
+  nextQuestionBtnEl.style.visibility = "visible";
     
 }
 
 function nextQuestionFunc() {
   currentQuestion++;
-  quizQuestionFunct();
+    quizQuestionFunct();
   // Run the next round of quizQuestionFunct
 }
 
@@ -135,21 +137,23 @@ function nextQuestionFunc() {
 // Event listeners
 
 startBtnEl.addEventListener("click", startQuiz);
+
+
 // questionBtn.addEventListener("click", function(event){
 //   event.preventDefault();
 //   checkAnswer();
 //   }
 // );
-quizCard.addEventListener("click", function (event){
-  if (event.target === answer1Btn || 
-    event.target === answer2Btn ||
-    event.target === answer3Btn ||
-    event.target === answer4Btn) {
-    checkAnswer();
+
+quizCard.addEventListener("click", function(event){
+  if (event.target.id === "answer1" ||
+      event.target.id === "answer2" ||
+      event.target.id === "answer3" ||
+      event.target.id === "answer4") {
+        checkAnswer();
   } else {
     return;
   }
 });
+
 nextQuestionBtnEl.addEventListener("click", nextQuestionFunc);
-
-
