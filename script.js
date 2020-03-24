@@ -3,7 +3,7 @@
 var qAndAArr = [
   {
       questionNumber: "Question Number 1",
-      question: "What do [] denote in Javascript?",
+      question: "What do [ ] denote in Javascript?",
       answers: {
         a: "An Array",
         b: "An Object",
@@ -25,30 +25,29 @@ var qAndAArr = [
   },
   {
     questionNumber: "Question Number 3",
-    question: "Quiz Question Number 3?",
+    question: "What type of value is surround by quotation marks (e.g. 'value')?",
     answers: {
-      a: "This is answer 1",
-      b: "This is answer 2",
-      c: "This is answer 3",
-      d: "This is answer 4",
+      a: "A boolean",
+      b: "A number",
+      c: "A string",
+      d: "A variable",
     },
     correctAnswer: "answer3",
   },
   {
-    questionNumber: "Question 4",
-    question: "Quiz Question Number 4?",
+    questionNumber: "Question Number 4",
+    question: "JSON is a format for storing and transporting data, often from a server to a web page. What does JSON stand for?",
     answers: {
-      a: "This is answer 1",
-      b: "This is answer 2",
-      c: "This is answer 3",
-      d: "This is answer 4",
+      a: "Java Object Number",
+      b: "JavaScript Oriented Notes",
+      c: "Java Orientation Notation",
+      d: "JavaScript Object Notation",
     },
     correctAnswer: "answer4",
   }
 ]
 
-
-//   Start Quiz
+//   Start Quiz Variables and Function
 var startBtnEl = document.querySelector("#startBtn");
 var welcMessageEl = document.querySelector("#welcomeMessage");
 
@@ -62,7 +61,7 @@ function startQuiz() {
 
 // Timer
 var timeEl = document.querySelector("#timer");
-var secondsLeft = 6;
+var secondsLeft = 76;
 
 function setTime() {
     var timerInterval = setInterval(function() {
@@ -109,6 +108,8 @@ function quizQuestionFunct() {
  
 } 
 
+// Check answer function
+
 function checkAnswer() {
   if (event.target.id === qAndAArr[currentQuestion].correctAnswer) {
     answerMessage.textContent = "Correct Answer!"
@@ -119,6 +120,7 @@ function checkAnswer() {
   nextQuestionBtnEl.style.visibility = "visible";
     
 }
+// Next question function
 
 function nextQuestionFunc() {
   currentQuestion++;
