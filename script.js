@@ -68,7 +68,7 @@ function setTime() {
       secondsLeft--;
       timeEl.textContent = "Time: " + secondsLeft;
   
-      if(secondsLeft < 0) {
+      if(secondsLeft < 0 || currentQuestion === qAndAArr.length) {
         clearInterval(timerInterval);
         endGame();
       }
@@ -125,8 +125,9 @@ function checkAnswer() {
 function nextQuestionFunc() {
   currentQuestion++;
     quizQuestionFunct();
+  
+  }
 
-}
 
 //   End of Game function
 
