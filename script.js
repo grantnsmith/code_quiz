@@ -81,10 +81,6 @@ var answer1 = document.querySelector("#answer1");
 var answer2 = document.querySelector("#answer2");
 var answer3 = document.querySelector("#answer3");
 var answer4 = document.querySelector("#answer4");
-var answer1Btn = document.querySelector("answer1");
-var answer2Btn = document.querySelector("answer2");
-var answer3Btn = document.querySelector("answer3");
-var answer4Btn = document.querySelector("answer4");
 var answerMessage = document.querySelector("#answerMessage");
 var nextQuestionBtnEl = document.querySelector("#nextQuestionBtn");
 var currentQuestion = 0;
@@ -92,7 +88,11 @@ var currentQuestion = 0;
 // Quiz card function
 
 function quizQuestionFunct() {
-    nextQuestionBtnEl.style.visibility = "hidden";  
+    nextQuestionBtnEl.style.visibility = "hidden"; 
+    document.getElementById("answer1").disabled = false;
+    document.getElementById("answer2").disabled = false;
+    document.getElementById("answer3").disabled = false;
+    document.getElementById("answer4").disabled = false; 
     quizCard.style.visibility = "visible";
     answerMessage.textContent = "";
     questionNumber.textContent = qAndAArr[currentQuestion].questionNumber;
@@ -109,14 +109,25 @@ function checkAnswer() {
   if (event.target.id === qAndAArr[currentQuestion].correctAnswer) {
     answerMessage.textContent = "Correct Answer!"
   } else {
+    document.getElementById(event.target.id).style.background = "red";
     answerMessage.textContent = "Wrong Answer!"
     secondsLeft -= 10;
   }
+  document.getElementById(qAndAArr[currentQuestion].correctAnswer).style.background = "green";
+  document.getElementById("answer1").disabled = true;
+  document.getElementById("answer2").disabled = true;
+  document.getElementById("answer3").disabled = true;
+  document.getElementById("answer4").disabled = true;
   nextQuestionBtnEl.style.visibility = "visible";  
 }
 // Next question function
 
 function nextQuestionFunc() {
+  // document.getElementById(qAndAArr[currentQuestion].correctAnswer).style.background = "none";
+  document.getElementById("answer1").style.background = "none";
+  document.getElementById("answer2").style.background = "none";
+  document.getElementById("answer3").style.background = "none";
+  document.getElementById("answer4").style.background = "none";
   currentQuestion++;
     quizQuestionFunct();
   }
