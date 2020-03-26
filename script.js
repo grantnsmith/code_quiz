@@ -124,11 +124,9 @@ function checkAnswer() {
   if (event.target.id === qAndAArr[currentQuestion].correctAnswer) {
     answerMessage.textContent = "Correct Answer!"
   } else {
-    // document.getElementById(event.target.id).style.background = "red";
     answerMessage.textContent = "Wrong Answer!"
     secondsLeft -= 10;
   }
-  // document.getElementById(qAndAArr[currentQuestion].correctAnswer).style.background = "green";
   document.getElementById("answer1").disabled = true;
   document.getElementById("answer2").disabled = true;
   document.getElementById("answer3").disabled = true;
@@ -151,13 +149,14 @@ function nextQuestionFunc() {
       highScoreForm();
   }
 
-// High Score Modal window
+// High Score window
 
 var highScoreEl = document.getElementById("highScore");
+var highScoreTitleEl = document.getElementById("highScoreCardTitle");
 
 function highScoreForm() {
   highScoreEl.style.display = "block";
-  console.log("High score form is working");
+  highScoreTitleEl.textContent = "GAME OVER! Your Score: " + secondsLeft;
   
 }
 
