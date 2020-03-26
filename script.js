@@ -44,6 +44,17 @@ var qAndAArr = [
       d: "JavaScript Object Notation",
     },
     correctAnswer: "answer4",
+  },
+  {
+    questionNumber: "Question #5",
+    question: "If you put JavaScript inside your HTML, what tag do you put around the code?",
+    answers: {
+      a: "<style>",
+      b: "<scripting>",
+      c: "<javascript>",
+      d: "<script>",
+    },
+    correctAnswer: "answer4",
   }
 ]
 
@@ -88,6 +99,9 @@ var currentQuestion = 0;
 // Quiz card function
 
 function quizQuestionFunct() {
+  if (currentQuestion === qAndAArr.length){
+    return;
+  } else {
     nextQuestionBtnEl.style.visibility = "hidden"; 
     document.getElementById("answer1").disabled = false;
     document.getElementById("answer2").disabled = false;
@@ -101,7 +115,8 @@ function quizQuestionFunct() {
     answer2.textContent = qAndAArr[currentQuestion].answers.b;
     answer3.textContent = qAndAArr[currentQuestion].answers.c;
     answer4.textContent = qAndAArr[currentQuestion].answers.d;
-} 
+  } 
+}
 
 // Check answer function
 
@@ -109,25 +124,21 @@ function checkAnswer() {
   if (event.target.id === qAndAArr[currentQuestion].correctAnswer) {
     answerMessage.textContent = "Correct Answer!"
   } else {
-    document.getElementById(event.target.id).style.background = "red";
+    // document.getElementById(event.target.id).style.background = "red";
     answerMessage.textContent = "Wrong Answer!"
     secondsLeft -= 10;
   }
-  document.getElementById(qAndAArr[currentQuestion].correctAnswer).style.background = "green";
+  // document.getElementById(qAndAArr[currentQuestion].correctAnswer).style.background = "green";
   document.getElementById("answer1").disabled = true;
   document.getElementById("answer2").disabled = true;
   document.getElementById("answer3").disabled = true;
   document.getElementById("answer4").disabled = true;
   nextQuestionBtnEl.style.visibility = "visible";  
 }
+
 // Next question function
 
 function nextQuestionFunc() {
-  // document.getElementById(qAndAArr[currentQuestion].correctAnswer).style.background = "none";
-  document.getElementById("answer1").style.background = "none";
-  document.getElementById("answer2").style.background = "none";
-  document.getElementById("answer3").style.background = "none";
-  document.getElementById("answer4").style.background = "none";
   currentQuestion++;
     quizQuestionFunct();
   }
@@ -136,7 +147,19 @@ function nextQuestionFunc() {
 
   function endGame() {
       timeEl.textContent = "Game Over";
+      quizCard.style.display = "none";
+      highScoreForm();
   }
+
+// High Score Modal window
+
+var highScoreEl = document.getElementById("highScore");
+
+function highScoreForm() {
+  highScoreEl.style.display = "block";
+  console.log("High score form is working");
+  
+}
 
 // Event listeners
 
