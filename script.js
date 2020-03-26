@@ -2,7 +2,7 @@
 
 var qAndAArr = [
   {
-      questionNumber: "Question Number 1",
+      questionNumber: "Question #1",
       question: "What do [ ] denote in Javascript?",
       answers: {
         a: "An Array",
@@ -13,7 +13,7 @@ var qAndAArr = [
       correctAnswer: "answer1",
   },
   {
-    questionNumber: "Question Number 2",
+    questionNumber: "Question #2",
     question: "What does DOM stand for?",
     answers: {
       a: "Database Oriented Manager",
@@ -24,7 +24,7 @@ var qAndAArr = [
     correctAnswer: "answer2",
   },
   {
-    questionNumber: "Question Number 3",
+    questionNumber: "Question #3",
     question: "What type of value is surround by quotation marks (e.g. 'value')?",
     answers: {
       a: "A boolean",
@@ -35,7 +35,7 @@ var qAndAArr = [
     correctAnswer: "answer3",
   },
   {
-    questionNumber: "Question Number 4",
+    questionNumber: "Question #4",
     question: "JSON is a format for storing and transporting data, often from a server to a web page. What does JSON stand for?",
     answers: {
       a: "Java Object Number",
@@ -92,6 +92,7 @@ var currentQuestion = 0;
 // Quiz card function
 
 function quizQuestionFunct() {
+    nextQuestionBtnEl.style.visibility = "hidden";  
     quizCard.style.visibility = "visible";
     answerMessage.textContent = "";
     questionNumber.textContent = qAndAArr[currentQuestion].questionNumber;
@@ -109,6 +110,7 @@ function checkAnswer() {
     answerMessage.textContent = "Correct Answer!"
   } else {
     answerMessage.textContent = "Wrong Answer!"
+    secondsLeft -= 10;
   }
   nextQuestionBtnEl.style.visibility = "visible";  
 }
