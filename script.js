@@ -60,6 +60,7 @@ var qAndAArr = [
 
 // Quiz question variables
 
+var highScoreNav = document.querySelector("#highScoreNav");
 var quizCard = document.querySelector("#quizCard");
 var questionNumber = document.querySelector("#quizCardTitle");
 var quizQuestion = document.querySelector("#quizCardText");
@@ -191,47 +192,21 @@ function highScoreForm() {
   
 }
 // High score page elements
-// Clear scores button
+var clearScoreBtn = document.getElementById("clearHighScore");
 var restartBtnEl = document.getElementById("restartBtn");
-var highScorePage = document.getElementById("highScorePage")
+var highScorePage = document.getElementById("highScorePage");
 var initialsAndHighScore = document.getElementById("initialsAndHighScore");
+
 // Show high scores page
 
 function renderHighScores() {
   highScoreEl.style.display = "none";
   highScorePage.style.display = "block";
-  
-  // for (var i=0; i<initials.length; i++) {
-  //   var INTS = initials[i];
-  // }
-  // for (var j=0; j<highScore.length; j++) {
-  //   var HS = highScore[j];
-  // }
-  // console.log("Initials =" + INTS);
-  // console.log("high score = " + HS);
-  // var par = document.createElement("p");
-  // par.textContent = INTS + " = " + HS; 
-
-  // initialsAndHighScore.appendChild(par);
+  for (var i=0; i<initials.length; i++) {
+  initialsAndHighScore.append(initials[i] + ": " + highScore[i] + " ");
+  }
 }
-  
-  // function renderTodos() {
-  
-  
-  // 
-  
-  //     var li = document.createElement("li");
-  //     li.textContent = todo;
-  //     li.setAttribute("data-index", i);
-
-  
-  //     li.appendChild(button);
-  //     todoList.appendChild(li);
-  //   }
-  
-
-
-
+    
 // Event listeners
 
 startBtnEl.addEventListener("click", startQuiz);
@@ -269,4 +244,14 @@ restartBtnEl.addEventListener("click", function(event) {
   location.reload();
 });
 
-// Add event listener to clear scores (but first grab element from DOM)
+clearScoreBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  initialsAndHighScore.textContent = "";
+  localStorage.clear();
+} );
+highScoreNav.addEventListener("click", function(event) {
+  event.preventDefault();
+  welcMessageEl.style.display = "none";
+  quizCard.style.display = "none";
+  renderHighScores();
+} )
