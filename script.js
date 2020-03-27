@@ -184,7 +184,6 @@ highScoreSubmitBtn.addEventListener("click", function(event) {
   event.preventDefault();
   var initialsValue = document.getElementById("inlineFormInput").value;
   console.log(initialsValue);
-  // initials.push(initialsValue);
   localStorage.setItem("initials", JSON.stringify(initialsValue));
 
 } )
