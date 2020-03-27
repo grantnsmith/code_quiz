@@ -95,6 +95,8 @@ var answer4 = document.querySelector("#answer4");
 var answerMessage = document.querySelector("#answerMessage");
 var nextQuestionBtnEl = document.querySelector("#nextQuestionBtn");
 var currentQuestion = 0;
+var highScore = [];
+var initials = [];
 
 // Quiz card function
 
@@ -160,6 +162,7 @@ function highScoreForm() {
   highScoreTitleEl.textContent = "GAME OVER! Your Score: " + secondsLeft;
   var highScore = secondsLeft;
   console.log(highScore);
+  localStorage.setItem("highScore", JSON.stringify(highScore));
   
 }
 
@@ -179,6 +182,9 @@ quizCard.addEventListener("click", function(event){
 });
 highScoreSubmitBtn.addEventListener("click", function(event) {
   event.preventDefault();
-  var initials = document.getElementById("inlineFormInput").value;
+  var initialsValue = document.getElementById("inlineFormInput").value;
+  console.log(initialsValue);
+  // initials.push(initialsValue);
+  localStorage.setItem("initials", JSON.stringify(initialsValue));
 
 } )
