@@ -203,7 +203,8 @@ function renderHighScores() {
   highScoreEl.style.display = "none";
   highScorePage.style.display = "block";
   for (var i=0; i<initials.length; i++) {
-  initialsAndHighScore.append(initials[i] + ": " + highScore[i] + " ");
+  initialsAndHighScore.append(initials[i] + ": " + highScore[i] + "\n");
+  
   }
 }
     
