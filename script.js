@@ -153,10 +153,13 @@ function nextQuestionFunc() {
 
 var highScoreEl = document.getElementById("highScore");
 var highScoreTitleEl = document.getElementById("highScoreCardTitle");
+var highScoreSubmitBtn = document.getElementById("highScoreSubmit");
 
 function highScoreForm() {
   highScoreEl.style.display = "block";
   highScoreTitleEl.textContent = "GAME OVER! Your Score: " + secondsLeft;
+  var highScore = secondsLeft;
+  console.log(highScore);
   
 }
 
@@ -174,3 +177,8 @@ quizCard.addEventListener("click", function(event){
     return;
   }
 });
+highScoreSubmitBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  var initials = document.getElementById("inlineFormInput").value;
+
+} )
